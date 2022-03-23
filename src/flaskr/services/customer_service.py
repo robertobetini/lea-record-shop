@@ -11,7 +11,7 @@ from ..utils.document_utils import document_is_valid
 from ..models.customer import Customer
 from ..repositories.customer_repository import CustomerRepository
 
-class DiscService:
+class CustomerService:
     def __init__(self, customer_repository: CustomerRepository):
         self.__customer_repository = customer_repository
 

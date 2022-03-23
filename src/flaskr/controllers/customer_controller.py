@@ -31,3 +31,17 @@ def insert():
         return make_response("ok", 201)
     except Exception as error:
         return make_response(str(error), 400)
+
+def activate(customer_id: str):
+    try:
+        customer_service.activate(customer_id)
+        return make_response("ok", 202)
+    except Exception as error:
+        return make_response(str(error), 400)
+
+def deactivate(customer_id: str):
+    try:
+        customer_service.deactivate(customer_id)
+        return make_response("ok", 202)
+    except Exception as error:
+        return make_response(str(error), 400)

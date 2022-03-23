@@ -43,3 +43,23 @@ class CustomerService:
             customer.active = True
 
         self.__customer_repository.insert(customer)
+
+    def activate(self, customer_id: str):
+        if string_is_null_or_whitespace(customer_id):
+            raise ArgumentNullError("Customer Id can't be null.")
+
+        customer = self.__customer_repository.get_by_id(customer_id)
+        if customer.get("active"):
+            return
+
+        self.__customer_repository.activate(customer_id)
+
+    def deactivate(self, customer_id: str):
+        if string_is_null_or_whitespace(customer_id):
+            raise ArgumentNullError("Customer Id can't be null.")
+
+        customer = self.__customer_repository.get_by_id(customer_id)
+        if not customer.get("active"):
+            return
+            
+        self.__customer_repository.deactivate(customer_id)

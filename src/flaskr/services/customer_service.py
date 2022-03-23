@@ -5,8 +5,8 @@ from ..exceptions.invalid_document_error import InvalidDocumentError
 
 from ..utils.string_utils import string_is_null_or_whitespace
 from ..utils.email_utils import email_is_valid
-from ..utils.phone_utils import phone_is_valid, remove_special_characters
-from ..utils.document_utils import document_is_valid
+from ..utils.phone_utils import phone_is_valid, remove_phone_special_characters
+from ..utils.document_utils import document_is_valid, remove_document_special_characters
 
 from ..models.customer import Customer
 from ..repositories.customer_repository import CustomerRepository
@@ -31,16 +31,15 @@ class CustomerService:
             raise ArgumentNullError("Customer phone can't be null.")
         if not phone_is_valid(customer.phone):
             raise InvalidPhoneError("Customer phone must be valid.")
+        customer.phone = remove_phone_special_characters(customer.phone)
 
         if string_is_null_or_whitespace(customer.document):
             raise ArgumentNullError("Customer document can't be null.")
         if not document_is_valid(customer.document):
             raise InvalidDocumentError("Customer document must be valid.")
+        customer.document = remove_document_special_characters(customer.document)
 
         if not customer.active:
             customer.active = True
 
         self.__customer_repository.insert(customer)
-
-        
-        

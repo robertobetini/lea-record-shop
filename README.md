@@ -18,7 +18,6 @@ You can check your python version by running the command
 You can install Pipenv and Flask by running:
 
 ```
-> pip install flask
 > pip install pipenv
 ```
 
@@ -33,10 +32,11 @@ You must also create a new Service Account with permission to Read and Write to 
 
 ### 4. Setup the environment
 
-After installing the necessary packages, go to console and hit the command to create a virtual environment:
+After installing the necessary packages, go to console and hit the commands to create a virtual environment and install packages:
 
 ```
 > pipenv shell
+> pipenv install -r requirements.txt
 ```
 
 Now let's set some necessary environment variables

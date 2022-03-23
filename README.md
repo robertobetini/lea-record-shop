@@ -64,3 +64,17 @@ In order to run the application, just call
 ```
 
 while on the api folder (`src/flaskr/`).
+
+# Why Flask?
+
+Given the test deadline I've decided to use flask as framework since it's more fresh on my mind than Django, and I can visualize MVC architecture better with it.
+
+# Why Firestore?
+
+As a non relational database, Firestore is flexible and fast, it forces you to create index for certain queries, which makes they run quickly, but creating too much indices might be a problem if storage size is a problem. Because it is document driven, it's easy to restructure the collections.
+
+# Why not Docker?
+
+I'd love to dockerize this API, and maybe in the future I'll do it, since I've never dockerized a flask API before. I'm actually more familiar with dockerizing ASP.NET Core applications.
+
+Containerizing your application might make it more performatic and independent, since it creates (theoretically) a completely separated environment to run your application with less resources. It's a good choice when working with microsservices architecture. Another good choice could be a container orchestration solution, like Kubernetes.

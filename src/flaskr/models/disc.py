@@ -1,6 +1,7 @@
 from datetime import date
+from .entity import Entity
 
-class Disc:
+class Disc(Entity):
     def __init__(self, name: str, artist: str, release_date: date, style: str, quantity: int):
         self.name = name
         self.artist = artist

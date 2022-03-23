@@ -1,6 +1,7 @@
 from datetime import date
+from .entity import Entity
 
-class Customer:
+class Customer(Entity):
     def __init__(self, document: str, name: str, birth_date: date, email: str, phone: str):
         self.document = document
         self.name = name
@@ -8,4 +9,3 @@ class Customer:
         self.email = email
         self.phone = phone
         self.active = True
-        

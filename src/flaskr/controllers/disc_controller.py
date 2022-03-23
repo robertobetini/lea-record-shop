@@ -24,7 +24,7 @@ def insert():
     
         disc = Disc(name, artist, date, style, quantity)
         disc_service.insert(disc)
-        return make_response("ok", 200)
+        return make_response("ok", 201)
     except Exception as error:
         return make_response(str(error), 400)
 

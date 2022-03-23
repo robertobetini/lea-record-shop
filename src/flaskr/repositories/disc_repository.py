@@ -11,7 +11,8 @@ class DiscRepository:
 
     def insert(self, disc: Disc):
         self \
-            .__db.collection(self.__collection_name) \
+            .__db \
+            .collection(self.__collection_name) \
             .document() \
             .set(disc.to_dict())
 
